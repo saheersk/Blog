@@ -1,0 +1,9 @@
+asgiref==3.5.2
+decouple==0.0.7
+Django==4.0.4
+django-ckeditor==6.4.2
+django-js-asset==2.0.0
+Pillow==9.1.1
+pypi==2.1
+python-decouple==3.6
+sqlparse==0.4.2

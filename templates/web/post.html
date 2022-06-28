@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+    <section id="single-page-home">
+        <section class="wrapper">         
+           {% include 'web/includes/header.html' %}
+            <section class="single-page-spotlight">
+                <div class="blog-category">
+                    {% for category in instances.category.all %}
+                    <span class="category">
+                        {{category.title}}
+                    </span>
+                    {% endfor %}
+          
+                    <span class="read">
+                        <span class="clock">
+                            <img src="{% static 'images/icons/clock.svg' %}" alt="Clock" />
+                        </span>
+                        {{instances.time_to_read}}
+                    </span>
+                </div>
+                <h3 class="title">
+                    {{instances.title}}
+                </h3>
+                <p class="description">
+                    {{instances.short_description}}
+                </p>
+                <div class="post-thumbnail">
+                    <img src="{{instances.featured_image.url}}" alt="Post-thumbnail" >
+                </div>
+                <div class="details">
+                    <span class="published">
+                        <p class="written">
+                            Written by
+                        </p>
+                        <p class="name">
+                            {{instances.author}}
+                        </p>
+                    </span>
+                    <span class="published">
+                        <p class="written">
+                            Published on
+                        </p>
+                        <p class="name">
+                        {{instances.published_date}}
+                        </p>
+                    </span>
+                    <ul class="social">
+                        <li>
+                            <a href="#" class="copy-link">
+                                <span class="link">
+                                    <img src="{% static 'images/icons/copy-link.svg' %}" alt="Copy-link" />
+                                </span>
+                                Copy link
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a target="_blank" href="https://twitter.com/intent/tweet?text={{request.build_absolute_url}}">
+                                <img src="{% static 'images/icons/twitter.svg' %}" alt="Twitter" />
+                            </a>
+                        </li>
+
+                        <li class="social-media">
+                            <a target="_blank" href="https://www.facebook.com/sharer.php?u={{request.build_absolute_url}}">
+                                <img src="{% static 'images/icons/facebook.svg' %}" alt="Facebook" />
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a target="_blank" href="https://api.whatsapp.com/send/?text={{request.build_absolute_url}}">
+                                <img src="{% static 'images/icons/whatsapp.svg' %}" alt="Linked-in" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="detailed-description">
+                {{instances.description|safe}}
+                </section>
+        </section>
+    </section>
+
+{% endblock %}
